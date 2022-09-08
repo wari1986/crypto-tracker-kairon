@@ -1,4 +1,3 @@
-import React from "react";
 import Tokens from "./Tokens";
 
 const TokenList = ({ filteredTokens }: { filteredTokens: any }) => {
@@ -16,6 +15,7 @@ const TokenList = ({ filteredTokens }: { filteredTokens: any }) => {
             volume={token.total_volume}
             image={token.image}
             priceChangeDay={token.price_change_percentage_24h}
+            priceChangeWeek={token.price_change_percentage_7d}
           />
         );
       })}

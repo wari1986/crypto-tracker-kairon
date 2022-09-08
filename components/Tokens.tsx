@@ -1,6 +1,5 @@
-import React from 'react';
 // import Image from 'next/image';
-import Link from 'next/link';
+import Link from "next/link";
 
 const Tokens = ({
   id,
@@ -9,6 +8,7 @@ const Tokens = ({
   symbol,
   price,
   priceChangeDay,
+  priceChangeWeek,
   volume,
   marketcap,
 }: {
@@ -18,24 +18,37 @@ const Tokens = ({
   symbol: string;
   price: number;
   priceChangeDay: number;
+  priceChangeWeek: number;
   volume: number;
   marketcap: number;
 }) => {
   return (
-    <Link href="/id" as={`/${id}`}>
-      <a>
-        <div className="flex space-x-12 px-12 py-6 mx-12 my-2 justify-between">
-          <img className="w-12" src={image} alt="" />
-          <h1>{name}</h1>
-          <h1>{symbol}</h1>
-          <h1>${price.toLocaleString()}</h1>
-          <h1>{priceChangeDay.toFixed(2)}%</h1>
-          <h1>${volume.toLocaleString()}</h1>
-          <h1>${marketcap.toLocaleString()}</h1>
-        </div>
-      </a>
-    </Link>
+      <Link href="/id" as={`/${id}`}>
+        <a>
+          <td>
+            <img className="w-12" src={image} alt="" />
+          </td>
+          <td>{name}</td>
+          <td>{symbol}</td>
+          <td>${price.toLocaleString()}</td>
+          <td>{priceChangeDay.toFixed(1)}%</td>
+          <td>{priceChangeWeek}%</td>
+          <td>${volume.toLocaleString()}</td>
+          <td>${marketcap.toLocaleString()}</td>
+        </a>
+      </Link>
   );
 };
 
-export default Tokens
+export default Tokens;
+
+// <div className="flex space-x-12 px-12 py-6 mx-12 my-2 justify-between">
+//           <img className="w-12" src={image} alt="" />
+//           <p>{name}</p>
+//           <p>{symbol}</p>
+//           <p>${price.toLocaleString()}</p>
+//           <p>{priceChangeDay.toFixed(1)}%</p>
+//           <p>{priceChangeWeek}%</p>
+//           <p>${volume.toLocaleString()}</p>
+//           <p>${marketcap.toLocaleString()}</p>
+//         </div>
