@@ -1,75 +1,105 @@
-import React from 'react'
+import { useState } from 'react';
+import Link from 'next/link';
+import IdPageIcons from '../components/IdPageIcons';
+import { AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai';
+import { RiArrowGoBackLine }from 'react-icons/ri'
 
 const Token = ({ token }: {token: any}) => {
-  console.log({token})
+  // const [color, setColor] = useState('green-600')
+
+  const priceChange = token.market_data.price_change_percentage_24h;
+
+  // const handleColor= () => {
+  //   {priceChange < 0 ? setColor('red-600') : color}}
+
   return (
     <div className="my-24 mx-12 space-y-4">
-      <div className="flex items-center">
-        <img className="w-16" src={token.image.small} alt="" />
-        <h1 className="text-2xl bold">
+      <div className="flex items-center space-x-4">
+        <img className="w-16" src={token.image.large} alt="" />
+        <p className="text-2xl bold">
           {token.name} ({token.symbol.toUpperCase()})
-        </h1>
+        </p>
       </div>
       <div className="flex space-x-6 items-center">
-        <h1 className="text-4xl bold">
+        <p className="text-4xl bold">
           ${token.market_data.current_price.eur.toLocaleString()}
-        </h1>
-        <h1 className="text-2xl bold">
-          ${token.market_data.price_change_percentage_24h.toFixed(2)}%
-        </h1>
+        </p>
+        <div className="flex items-center text-2xl bold">
+          {priceChange < 0 ? (
+            <AiFillCaretDown className="text-red-600" />
+          ) : (
+            <AiFillCaretUp className="text-green-600" />
+          )}
+          {priceChange < 0 ? (
+            <p className="text-red-600">{priceChange.toFixed(2)}%</p>
+          ) : (
+            <p className="text-green-600">{priceChange.toFixed(2)}%</p>
+          )}
+        </div>
       </div>
-      <div className="icons"></div>
-      <div className="grid grid-cols-2 gap-4">
+
+      <IdPageIcons />
+
+      <div className="grid grid-cols-2 gap-4 divide-y divide-solid">
         <div className="flex justify-between">
-          <h1>Market Cap</h1>
+          <p>Market Cap</p>
           {token.market_data.market_cap.eur ? (
-            <h1>${token.market_data.market_cap.eur.toLocaleString()}</h1>
+            <p>${token.market_data.market_cap.eur.toLocaleString()}</p>
           ) : (
-            <h1>Unavailable Data</h1>
+            <p>Unavailable Data</p>
           )}
         </div>
         <div className="flex justify-between">
-          <h1>Circulating Supply</h1>
+          <p>Circulating Supply</p>
           {token.market_data.circulating_supply ? (
-            <h1>{token.market_data.circulating_supply.toLocaleString()}</h1>
+            <p>{token.market_data.circulating_supply.toLocaleString()}</p>
           ) : (
-            <h1>Unavailable Data</h1>
+            <p>Unavailable Data</p>
           )}
         </div>
         <div className="flex justify-between">
-          <h1>24 Hour Trading Vol</h1>
+          <p>24 Hour Trading Vol</p>
           {token.market_data.total_volume.eur ? (
-            <h1>${token.market_data.total_volume.eur.toLocaleString()}</h1>
+            <p>${token.market_data.total_volume.eur.toLocaleString()}</p>
           ) : (
-            <h1>Unavailable Data</h1>
+            <p>Unavailable Data</p>
           )}
         </div>
         <div className="flex justify-between">
-          <h1>Total Supply</h1>
+          <p>Total Supply</p>
           {token.market_data.total_supply ? (
-            <h1>{token.market_data.total_supply.toLocaleString()}</h1>
+            <p>{token.market_data.total_supply.toLocaleString()}</p>
           ) : (
-            <h1>Unavailable Data</h1>
+            <p>Unavailable Data</p>
           )}
         </div>
         <div className="flex justify-between">
-          <h1>Full Diluted Valuation</h1>
+          <p>Full Diluted Valuation</p>
           {token.market_data.fully_diluted_valuation.eur ? (
-            <h1>
+            <p>
               ${token.market_data.fully_diluted_valuation.eur.toLocaleString()}
-            </h1>
+            </p>
           ) : (
-            <h1>Unavailable Data</h1>
+            <p>Unavailable Data</p>
           )}
         </div>
         <div className="flex justify-between">
-          <h1>Max Supply</h1>
+          <p>Max Supply</p>
           {token.market_data.max_supply ? (
-            <h1>{token.market_data.max_supply.toLocaleString()}</h1>
+            <p>{token.market_data.max_supply.toLocaleString()}</p>
           ) : (
-            <h1>Unavailable Data</h1>
+            <p>Unavailable Data</p>
           )}
         </div>
+      </div>
+      <div className="text-lg bold text-blue-600">
+        <Link href="/">
+          <a>
+            <h1>
+              Back to Dashboard
+            </h1>
+          </a>
+        </Link>
       </div>
     </div>
   );
