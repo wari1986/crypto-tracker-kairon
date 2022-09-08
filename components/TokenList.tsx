@@ -4,7 +4,7 @@ import Tokens from "./Tokens";
 const TokenList = ({ filteredTokens }: { filteredTokens: any }) => {
   return (
     <div>
-      {filteredTokens.map((token) => {
+      {filteredTokens.map((token: any) => {
         return (
           <Tokens
             key={token.id}
