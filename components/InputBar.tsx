@@ -25,7 +25,7 @@ const InputBar = () => {
 
     setName('');
   };
-  console.log(idList);
+  // console.log(idList);
   return (
     <div>
       <div className="flex">

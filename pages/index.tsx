@@ -2,9 +2,11 @@ import Head from 'next/head'
 import InputBar from '../components/InputBar'
 import TokenList from '../components/TokenList';
 import Token from '../types/Token';
+import { useEffect } from 'react';
 
 export default function Home({ filteredTokens }: {filteredTokens: Array<Token>}) {
-  
+  // useEffect(() => console.log(filteredTokens));
+
   return (
     <div className='grid place-items-center'>
       <Head>

@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
 import Token from '../types/Token';
 import Coin from "../components/Coin";
+import { useState } from 'react';
 
 const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token>}) => {
-  useEffect(()=> console.log(filteredTokens))
+  const initialList = filteredTokens.filter(token => (token.id === 'bitcoin' || token.id === 'ethereum'))
+  console.log(initialList)
 
   return (
+
     <div>
-      {filteredTokens.map((token: Token) => {
+      {initialList.map((token) => {
         return (
           <Coin
           key={token.id}
@@ -22,7 +25,7 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token>}) => {
           />
         );
       })}
-    </div>
+     </div>
   );
 };
 
