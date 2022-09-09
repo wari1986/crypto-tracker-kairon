@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import InputBar from '../components/InputBar'
-import Button from '../components/Button';
 import TokenList from '../components/TokenList';
+import Token from '../types/Token';
 
-export default function Home({ filteredTokens }: {filteredTokens: string}) {
+export default function Home({ filteredTokens }: {filteredTokens: Array<Token>}) {
+  
   return (
     <div className='grid place-items-center'>
       <Head>
@@ -13,7 +14,6 @@ export default function Home({ filteredTokens }: {filteredTokens: string}) {
       </Head>
       <div className="flex">
         <InputBar type='text' placeholder="Add Token ID"/>
-        <Button />
       </div>
       <div >
         <TokenList filteredTokens={filteredTokens} />
