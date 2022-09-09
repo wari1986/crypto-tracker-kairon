@@ -1,21 +1,24 @@
-import React from "react";
-import Tokens from "./Tokens";
+import { useEffect } from 'react';
+import Token from '../types/Token';
+import Coin from "../components/Coin";
 
-const TokenList = ({ filteredTokens }: { filteredTokens: any }) => {
+const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token>}) => {
+  useEffect(()=> console.log(filteredTokens))
+
   return (
     <div>
-      {filteredTokens.map((token: any) => {
+      {filteredTokens.map((token: Token) => {
         return (
-          <Tokens
-            key={token.id}
-            name={token.name}
-            id={token.id}
-            price={token.current_price}
-            symbol={token.symbol}
-            marketcap={token.market_cap}
-            volume={token.total_volume}
-            image={token.image}
-            priceChangeDay={token.price_change_percentage_24h}
+          <Coin
+          key={token.id}
+          id={token.id}
+          image={token.image}
+          name={token.name}
+          symbol={token.symbol}
+          current_price={token.current_price}
+          price_change_24h={token.price_change_percentage_24h}
+          total_volume={token.total_volume}
+          market_cap={token.market_cap}
           />
         );
       })}
