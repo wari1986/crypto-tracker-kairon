@@ -1,17 +1,18 @@
 import Button from "../components/Button";
 import { useState } from "react";
+import TokenList from "../components/TokenList";
 
-const tokenIdList = [
-  {
-    id: "bitcoin",
-  },
-  {
-    id: "ethereum",
-  },
-];
+// const tokenIdList = [
+//   {
+//     id: "bitcoin",
+//   },
+//   {
+//     id: "ethereum",
+//   },
+// ];
 
-const InputBar = () => {
-  const [idList, setIdList] = useState(tokenIdList);
+const InputBar = ({filteredTokens}) => {
+  const [idList, setIdList] = useState(filteredTokens);
   const [name, setName] =useState('');
 
   const handleChange = (event) => {
@@ -25,7 +26,7 @@ const InputBar = () => {
 
     setName('');
   };
-  // console.log(idList);
+  // export input value as an event, catch this event in the TokenList component and push it to initialList
   return (
     <div>
       <div className="flex">
@@ -38,11 +39,11 @@ const InputBar = () => {
         <button type="button" onClick={handleAdd}>Add</button>
       </div>
 
-      {/* <ul>
+      <ul>
         {idList.map((item) => (
-          <li key={item.id}></li>
+          <TokenList key={item.id} filteredTokens={filteredTokens} />
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };
