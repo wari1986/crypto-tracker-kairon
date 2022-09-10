@@ -15,7 +15,7 @@ export default function Home({ filteredTokens }: {filteredTokens: Array<Token>})
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex">
-        <InputBar type='text' placeholder="Add Token ID"/>
+        {/* <InputBar type='text' placeholder="Add Token ID"/> */}
       </div>
       <div >
         <TokenList filteredTokens={filteredTokens} />
