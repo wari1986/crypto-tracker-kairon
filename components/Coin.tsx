@@ -22,7 +22,6 @@ const Coin = ({
         </td>
         <td data-label="Number">#</td>
         <Link href="/id" as={`/${id}`}>
-          <a>
             <td
               data-label="Coin"
               className="flex space-x-4 items-center text-left"
@@ -33,7 +32,6 @@ const Coin = ({
               <p className="w-24">{name}</p>
               <p className="text-gray-400">{symbol.toUpperCase()}</p>
             </td>
-          </a>
         </Link>
         <td data-label="Price">${current_price.toLocaleString()}</td>
         <td data-label="Price variation 1h"></td>
