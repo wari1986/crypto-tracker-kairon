@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaRegTrashAlt } from 'react-icons/fa'
 
 
-const Coin = (props) => {
+const Coin = (props: any) => {
 
   function emmitCoinId() {
     props.deleteCoin(props.id);
