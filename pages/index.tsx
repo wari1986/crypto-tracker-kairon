@@ -23,7 +23,7 @@ export default function Home({
   // When setInterval or setTimeout code breaks
   // setTimeout(() =>{
   //   handleRefresh()
-  // },20000)
+  // },4000)
 
   return (
     <div className="grid place-items-center">
@@ -42,9 +42,9 @@ export default function Home({
   );
 }
 
-  export const getServerSideProps = async (context) => {
+  export const getServerSideProps = async () => {
     const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d"
     );
     const filteredTokens = await res.json();
   return {
