@@ -1,10 +1,11 @@
-import React from "react";
+import { useState }from "react";
 // import Image from 'next/image';
 import Link from "next/link";
 import Token from "../types/Token";
-import { FaRegTrashAlt } from 'react-icons/fa'
+// import { FaRegTrashAlt } from 'react-icons/fa'
+import DeleteCoin from "./DeleteCoin";
 
-const Coin = ({
+const Coin = ({filteredTokens}: {filteredTokens: Array<Token>}, {
   id,
   image,
   name,
@@ -13,12 +14,28 @@ const Coin = ({
   price_change_24h,
   total_volume,
   market_cap,
-}: Token) => {
+}: Token ) => {
+
+  const originalList = filteredTokens;
+  const initialList = filteredTokens.filter(
+    (token) => token.id === "bitcoin" || token.id === "ethereum"
+  );
+  const [list, setList] = useState(initialList);
+  const [id, setId] = useState("");
+
+  function deleteId(id: string){
+     setList((currentList) =>
+       currentList.filter((token: Token) => {
+         return token.id !== id;
+       })
+     );
+  }
+
   return (
     <>
       <tr className="border border-solid text-center">
         <td data-label="Delete icon">
-          <FaRegTrashAlt className="mx-auto" />
+          <DeleteCoin deleteId={deleteId} className="mx-auto" />
         </td>
         <td data-label="Number">#</td>
         <Link href="/id" as={`/${id}`}>

@@ -1,28 +1,29 @@
-import TokenList from '../components/TokenList';
+import { useState } from 'react';
 
-const AddCoin = () => {
-  const [list, setList] = React.useState(initialList);
-  const [name, setName] = React.useState("");
+const AddCoin = (props) => {
+  const [id, setId] = useState("");
 
   function handleChange(event) {
-    setName(event.target.value);
+    setId(event.target.value);
   }
 
-  function handleAdd() {
-    const newList = list.concat({ name, id: uuidv4() });
-
-    setList(newList);
-
-    setName("");
+  function emmitCoinId() {
+    props.addId(id);
   }
 
   return (
     <div>
-      <AddItem name={name} onChange={handleChange} onAdd={handleAdd} />
-
-      <List list={list} />
+      <input
+        type="text"
+        placeholder="Add Coin id"
+        value={id}
+        onChange={handleChange}
+      />
+      <button type="button" onClick={emmitCoinId} className="ml-6">
+        Add Coin
+      </button>
     </div>
   );
-}
+};
 
-export default AddCoin
+export default AddCoin;
