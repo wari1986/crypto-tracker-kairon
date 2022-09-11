@@ -1,28 +1,41 @@
-import TokenList from '../components/TokenList';
+import { useState } from "react";
 
-const AddCoin = () => {
-  const [list, setList] = React.useState(initialList);
-  const [name, setName] = React.useState("");
+const AddCoin = (props) => {
+  const [id, setId] = useState("");
 
   function handleChange(event) {
-    setName(event.target.value);
+    setId(event.target.value);
   }
 
-  function handleAdd() {
-    const newList = list.concat({ name, id: uuidv4() });
-
-    setList(newList);
-
-    setName("");
+  function emmitCoinId() {
+    props.addId(id);
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      props.addId(id);
+    }
+  };
 
   return (
-    <div>
-      <AddItem name={name} onChange={handleChange} onAdd={handleAdd} />
-
-      <List list={list} />
+    <div className='flex justify-center'>
+      <input
+        type="text"
+        placeholder="Add Coin id"
+        value={id}
+        className={"p-2 border-2 rounded my-4"}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <button
+        type="button"
+        onClick={emmitCoinId}
+        className="ml-6 my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Add Coin
+      </button>
     </div>
   );
-}
+};
 
-export default AddCoin
+export default AddCoin;
