@@ -30,15 +30,27 @@ const Coin = (props) => {
           </td>
         </Link>
         <td data-label="Price">${props.current_price.toLocaleString()}</td>
-        <td data-label="Price variation 1h">
+        {props.price_change_percentage_1h_in_currency < 0 ?
+        (<td className='text-red-600' data-label="Price variation 1h">
           {props.price_change_percentage_1h_in_currency.toFixed(2)}%
-        </td>
-        <td data-label="Price variation 24h">
+        </td>) : (<td className='text-green-600' data-label="Price variation 1h">
+          {props.price_change_percentage_1h_in_currency.toFixed(2)}%
+        </td>)}
+
+        {props.price_change_percentage_24h_in_currency < 0 ? (<td className='text-red-600' data-label="Price variation 24h">
           {props.price_change_percentage_24h_in_currency.toFixed(2)}%
-        </td>
-        <td data-label="Price variation 7d">
+        </td>) : (<td className='text-green-600' data-label="Price variation 24h">
+          {props.price_change_percentage_24h_in_currency.toFixed(2)}%
+        </td>)}
+
+        {props.price_change_percentage_7d_in_currency < 0 ? (
+        <td className='text-red-600' data-label="Price variation 7d">
           {props.price_change_percentage_7d_in_currency.toFixed(2)}%
-        </td>
+        </td>) : (<td className='text-green-600' data-label="Price variation 7d">
+          {props.price_change_percentage_7d_in_currency.toFixed(2)}%
+        </td>)}
+
+
         <td data-label="Total Volume">
           ${props.total_volume.toLocaleString()}
         </td>
