@@ -19,10 +19,10 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
     if (originalList.some((token: Token) => token.id === id)) {
       // Check if id added exist in current list
       if (currentUserList === undefined) {
-        const newTokenAdd = originalList.find(
+        const newTokenToAdd: any= originalList.find(
           (token: Token) => token.id === id
         );
-        const newList = list.concat(newTokenAdd);
+        const newList = list.concat(newTokenToAdd);
         setList(newList);
         setId("");
       } else alert("This Coin is already in your list");

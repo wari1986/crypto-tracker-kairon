@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-const AddCoin = (props) => {
+const AddCoin = (props: any) => {
   const [id, setId] = useState("");
 
-  function handleChange(event) {
+  function handleChange(event: any) {
     setId(event.target.value);
   }
 
@@ -11,7 +11,7 @@ const AddCoin = (props) => {
     props.addId(id);
   }
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
       props.addId(id);
     }
