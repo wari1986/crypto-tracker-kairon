@@ -13,7 +13,6 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   const [id, setId] = useState("");
 
   function addCoin(id: string) {
-    // Check if id added exist in current list
     const currentUserList = list.find((token) => token.id === id);
 
     // Check if id exist in original list
@@ -69,10 +68,18 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
                   name={token.name}
                   symbol={token.symbol}
                   current_price={token.current_price}
-                  price_change_24h={token.price_change_percentage_24h}
+                  price_change_percentage_1h_in_currency={
+                    token.price_change_percentage_1h_in_currency
+                  }
+                  price_change_percentage_24h_in_currency={
+                    token.price_change_percentage_24h_in_currency
+                  }
+                  price_change_percentage_7d_in_currency={
+                    token.price_change_percentage_7d_in_currency
+                  }
                   total_volume={token.total_volume}
                   market_cap={token.market_cap}
-                  />
+                />
               );
             })}
           </tbody>
