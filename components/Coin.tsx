@@ -1,58 +1,39 @@
-import { useState }from "react";
-// import Image from 'next/image';
 import Link from "next/link";
-import Token from "../types/Token";
-// import { FaRegTrashAlt } from 'react-icons/fa'
-import DeleteCoin from "./DeleteCoin";
+import { FaRegTrashAlt } from 'react-icons/fa'
 
-const Coin = ({filteredTokens}: {filteredTokens: Array<Token>}, {
-  id,
-  image,
-  name,
-  symbol,
-  current_price,
-  price_change_24h,
-  total_volume,
-  market_cap,
-}: Token ) => {
 
-  const originalList = filteredTokens;
-  const initialList = filteredTokens.filter(
-    (token) => token.id === "bitcoin" || token.id === "ethereum"
-  );
-  const [list, setList] = useState(initialList);
-  const [id, setId] = useState("");
+const Coin = (props) => {
 
-  function deleteId(id: string){
-     setList((currentList) =>
-       currentList.filter((token: Token) => {
-         return token.id !== id;
-       })
-     );
+  function emmitCoinId() {
+    props.deleteCoin(props.id);
   }
 
   return (
     <>
       <tr className="border border-solid text-center">
         <td data-label="Delete icon">
-          <DeleteCoin deleteId={deleteId} className="mx-auto" />
+          <button type="button" onClick={emmitCoinId}>
+            <FaRegTrashAlt />
+          </button>
         </td>
         <td data-label="Number">#</td>
-        <Link href="/id" as={`/${id}`}>
-            <td
-              data-label="Coin"
-              className="flex space-x-4 items-center text-left"
-            >
-              <p className="w-12">
-                <img className="w-12" src={image} alt="" />
-              </p>
-              <p className="w-24">{name}</p>
-              <p className="text-gray-400">{symbol.toUpperCase()}</p>
-            </td>
+        <Link href="/id" as={`/${props.id}`}>
+          <td
+            data-label="Coin"
+            className="flex space-x-4 items-center text-left"
+          >
+            <p className="w-12">
+              <img className="w-12" src={props.image} alt="" />
+            </p>
+            <p className="w-24">{props.name}</p>
+            <p className="text-gray-400">{props.symbol.toUpperCase()}</p>
+          </td>
         </Link>
-        <td data-label="Price">${current_price.toLocaleString()}</td>
+        <td data-label="Price">${props.current_price.toLocaleString()}</td>
         <td data-label="Price variation 1h"></td>
-        <td data-label="Price variation 24h">{price_change_24h.toFixed(2)}%</td>
+        <td data-label="Price variation 24h">
+          {props.price_change_24h.toFixed(2)}%
+        </td>
         <td data-label="Price variation 7"></td>
         <td data-label="Total Volume">${total_volume.toLocaleString()}</td>
         <td data-label="Market cap">${market_cap.toLocaleString()}</td>

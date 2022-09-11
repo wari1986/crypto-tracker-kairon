@@ -2,7 +2,6 @@ import AddCoin from "./AddCoin";
 import Token from "../types/Token";
 import Coin from "./Coin";
 import { useState } from "react";
-import { FaRegTrashAlt } from "react-icons/fa";
 
 const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   const originalList = filteredTokens;
@@ -11,21 +10,30 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   );
 
   const [list, setList] = useState(initialList);
-  const [id, setId] = useState('');
+  const [id, setId] = useState("");
 
   function addCoin(id: string) {
-    if (originalList.some((token) => token.id === id)) {
-      const newTokenAdd = originalList.find((token: Token) => token.id === id);
-      const newList = list.concat(newTokenAdd);
-      setList(newList);
-      setId('');
-      console.log(newList)
+    // Check if id added exist in current list
+    const currentUserList = list.find((token) => token.id === id);
+
+    // Check if id exist in original list
+    if (originalList.some((token: Token) => token.id === id)) {
+      // Check if id added exist in current list
+      if (currentUserList === undefined) {
+        const newTokenAdd = originalList.find(
+          (token: Token) => token.id === id
+        );
+        const newList = list.concat(newTokenAdd);
+        setList(newList);
+        setId("");
+      } else alert("This Coin is already in your list");
+      setId("");
     } else alert("Please insert a valid Token id");
-    setId('');
+    setId("");
   }
 
   function deleteCoin(id: string) {
-    setList((currentList) =>
+    setList((currentList: Token[]) =>
       currentList.filter((token: Token) => {
         return token.id !== id;
       })
@@ -52,9 +60,9 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
           </thead>
           <tbody>
             {list.map((token) => {
-              <button>Delete</button>
               return (
                 <Coin
+                  deleteCoin={deleteCoin}
                   key={token.id}
                   id={token.id}
                   image={token.image}
