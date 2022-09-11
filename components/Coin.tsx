@@ -35,8 +35,10 @@ const Coin = (props) => {
           {props.price_change_24h.toFixed(2)}%
         </td>
         <td data-label="Price variation 7"></td>
-        <td data-label="Total Volume">${total_volume.toLocaleString()}</td>
-        <td data-label="Market cap">${market_cap.toLocaleString()}</td>
+        <td data-label="Total Volume">
+          ${props.total_volume.toLocaleString()}
+        </td>
+        <td data-label="Market cap">${props.market_cap.toLocaleString()}</td>
         <td data-label="Last 7 days chart"></td>
       </tr>
     </>
