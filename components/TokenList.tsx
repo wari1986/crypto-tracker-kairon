@@ -8,7 +8,6 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
     (token) => token.id === "bitcoin" || token.id === "ethereum"
   );
   // console.log(initialList);
-  // export input value as an event, catch this event in the TokenList component and push it to initialList
 
   return (
     <div>
