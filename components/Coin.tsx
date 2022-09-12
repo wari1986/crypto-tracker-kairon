@@ -20,7 +20,7 @@ const Coin = (props: any) => {
         <Link href="/id" as={`/${props.id}`}>
           <td
             data-label="Coin"
-            className="flex space-x-4 items-center text-left"
+            className="flex space-x-4 items-center text-left cursor-pointer"
           >
             <p className="w-12">
               <img className="w-12" src={props.image} alt="" />

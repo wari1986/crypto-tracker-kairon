@@ -14,7 +14,7 @@ const IdPageIcons = () => {
       <button className="w-14 flex justify-center py-2 rounded-lg border border-solid border-gray-400">
         <AiOutlineStar />
       </button>
-      <div className="flex justify-center items-center bg-gray-200 rounded-lg space-x-2 px-4">
+      <div className="flex justify-center items-center bg-gray-300 rounded-lg text-black space-x-2 px-4">
         <AiFillStar className="text-lg text-yellow-400" />
         <p className="text-lg">1,134,590 people like this</p>
       </div>

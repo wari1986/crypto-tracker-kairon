@@ -40,9 +40,9 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   }
 
   return (
-      <div>
+      <>
       <AddCoin addId={addCoin} />
-        <table className="table-auto w-screen mx-8 my-8">
+        <table className="table-auto w-screen my-8">
           <thead>
             <tr className="text-center border border-top-solid ">
               <th></th>
@@ -84,7 +84,7 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
             })}
           </tbody>
         </table>
-      </div>
+      </>
   );
 };
 
