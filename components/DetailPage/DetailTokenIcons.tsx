@@ -2,7 +2,7 @@ import React from "react";
 import { IoArrowRedoOutline } from "react-icons/io5";
 import { AiOutlineBell, AiOutlineStar, AiFillStar } from "react-icons/ai";
 
-const IdPageIcons = () => {
+const DetailTokenIcons = () => {
   return (
     <div className="flex space-x-2 text-xl">
       <button className="w-14 flex justify-center py-2 rounded-lg border border-solid border-gray-400">
@@ -22,4 +22,4 @@ const IdPageIcons = () => {
   );
 };
 
-export default IdPageIcons;
+export default DetailTokenIcons;

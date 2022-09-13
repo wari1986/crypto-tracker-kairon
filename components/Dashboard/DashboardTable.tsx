@@ -1,9 +1,9 @@
-import AddCoin from "./AddCoin";
-import Token from "../types/Token";
-import Coin from "./Coin";
+import AddCoinForm from "../Coin/AddCoinForm";
+import Token from "../../types/Token";
+import Coin from "../Coin/Coin";
 import { useState } from "react";
 
-const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
+const DashboardTable = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   const originalList = filteredTokens;
   const initialList = filteredTokens.filter(
     (token) => token.id === "bitcoin" || token.id === "ethereum"
@@ -41,7 +41,7 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
 
   return (
       <>
-      <AddCoin addId={addCoin} />
+      <AddCoinForm addId={addCoin} />
         <table className="table-auto w-screen my-8">
           <thead>
             <tr className="text-center border border-top-solid ">
@@ -88,4 +88,4 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   );
 };
 
-export default TokenList;
+export default DashboardTable;

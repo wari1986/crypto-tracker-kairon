@@ -1,7 +1,6 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import TokenList from "../components/TokenList";
 import Token from "../types/Token";
+import DashboardTable from "../components/Dashboard/DashboardTable";
+import DashboardRefreshButton from "../components/Dashboard/DashboardRefreshButton";
 import Layout from "../components/Layout";
 
 export default function Home({
@@ -10,32 +9,11 @@ export default function Home({
   filteredTokens: Array<Token>;
 }) {
   // useEffect(() => console.log(filteredTokens));
-  const router = useRouter();
-  //call this function to refresh props
-  const refreshData = () => {
-    router.replace(router.asPath);
-  };
-
-  const handleRefresh = () => {
-    refreshData();
-    console.log("refreshed");
-  };
-  // When setInterval or setTimeout code breaks
-  // setTimeout(() =>{
-  //   handleRefresh()
-  // },4000)
 
   return (
     <Layout>
-      <div>
-        <TokenList filteredTokens={filteredTokens} />
-        <button
-          className="w-1/12 grid place-items-center rounded-lg py-2 text-white mx-auto bg-green-500"
-          onClick={handleRefresh}
-        >
-          Refresh
-        </button>
-      </div>
+      <DashboardTable filteredTokens={filteredTokens} />
+      <DashboardRefreshButton />
     </Layout>
   );
 }
