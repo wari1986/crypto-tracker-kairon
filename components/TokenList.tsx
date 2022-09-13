@@ -1,4 +1,4 @@
-import AddCoin from "./AddCoin";
+import AddCoinForm from "./AddCoinForm";
 import Token from "../types/Token";
 import Coin from "./Coin";
 import { useState } from "react";
@@ -41,7 +41,7 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
 
   return (
       <>
-      <AddCoin addId={addCoin} />
+      <AddCoinForm addId={addCoin} />
         <table className="table-auto w-screen my-8">
           <thead>
             <tr className="text-center border border-top-solid ">

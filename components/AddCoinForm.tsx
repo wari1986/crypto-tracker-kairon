@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddCoin = (props: any) => {
+const AddCoinForm = (props: any) => {
   const [id, setId] = useState("");
 
   function handleChange(event: any) {
@@ -38,4 +38,4 @@ const AddCoin = (props: any) => {
   );
 };
 
-export default AddCoin;
+export default AddCoinForm;
