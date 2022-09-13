@@ -1,7 +1,7 @@
-import DetailTokenHead from "../components/DetailTokenHead";
-import DetailTokenIcons from "../components/DetailTokenIcons";
-import DetailTokenTable from "../components/DetailTokenTable";
-import BackToDashboardButton from "../components/BackToDashboardButton";
+import DetailTokenHead from "../components/DetailPage/DetailTokenHead";
+import DetailTokenIcons from "../components/DetailPage/DetailTokenIcons";
+import DetailTokenTable from "../components/DetailPage/DetailTokenTable";
+import BackToDashboardButton from "../components/DetailPage/BackToDashboardButton";
 import Layout from "../components/Layout";
 
 const DetailPage = ({ token }: { token: any }) => {

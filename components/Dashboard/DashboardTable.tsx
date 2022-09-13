@@ -1,9 +1,9 @@
-import AddCoinForm from "./AddCoinForm";
-import Token from "../types/Token";
-import Coin from "./Coin";
+import AddCoinForm from "../Coin/AddCoinForm";
+import Token from "../../types/Token";
+import Coin from "../Coin/Coin";
 import { useState } from "react";
 
-const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
+const DashboardTable = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   const originalList = filteredTokens;
   const initialList = filteredTokens.filter(
     (token) => token.id === "bitcoin" || token.id === "ethereum"
@@ -88,4 +88,4 @@ const TokenList = ({ filteredTokens }: { filteredTokens: Array<Token> }) => {
   );
 };
 
-export default TokenList;
+export default DashboardTable;

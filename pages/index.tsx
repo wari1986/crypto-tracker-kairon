@@ -1,6 +1,6 @@
 import Token from "../types/Token";
-import TokenList from "../components/TokenList";
-import DashboardRefreshButton from "../components/DashboardRefreshButton";
+import DashboardTable from "../components/Dashboard/DashboardTable";
+import DashboardRefreshButton from "../components/Dashboard/DashboardRefreshButton";
 import Layout from "../components/Layout";
 
 export default function Home({
@@ -12,7 +12,7 @@ export default function Home({
 
   return (
     <Layout>
-      <TokenList filteredTokens={filteredTokens} />
+      <DashboardTable filteredTokens={filteredTokens} />
       <DashboardRefreshButton />
     </Layout>
   );
