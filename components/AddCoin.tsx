@@ -9,21 +9,23 @@ const AddCoin = (props: any) => {
 
   function emmitCoinId() {
     props.addId(id);
+    setId("");
   }
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
-      props.addId(id);
+      props.addId(id.toLowerCase());
+      setId("");
     }
   };
 
   return (
-    <div className='flex justify-center'>
+    <div className="flex justify-center">
       <input
         type="text"
         placeholder="Add Coin id"
         value={id}
-        className={"p-2 border-2 rounded my-4"}
+        className={"p-2 border-2 rounded my-4 text-gray-600"}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
