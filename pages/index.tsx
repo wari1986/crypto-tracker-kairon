@@ -4,11 +4,7 @@ import DashboardTable from "../components/Dashboard/DashboardTable";
 import DashboardRefreshButton from "../components/Dashboard/DashboardRefreshButton";
 import Layout from "../components/Layout";
 
-export default function Home({
-  filteredTokens,
-}: {
-  filteredTokens: Array<Token>;
-}) {
+export default function Home() {
 
   const fetchTokens = async () => {
     const res = await fetch(
@@ -18,14 +14,17 @@ export default function Home({
   }
 
   const {data, status} = useQuery('filteredTokens', fetchTokens)
-  console.log(data)
   if (status === 'loading'){
-   return<div>Loading....</div>
+    return <div className="grid place-items-center text-4xl">Loading....</div>;
   }
 
   if (status === 'error'){
-   return<div>Error</div>
+    return <div className="grid place-items-center text-4xl">Error</div>;
   }
+  
+  setInterval(() => {
+    fetchTokens();
+  },30000)
 
   return(
     <Layout>
