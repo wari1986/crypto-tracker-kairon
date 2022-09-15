@@ -17,11 +17,11 @@ export default function Home() {
 
   const {data, status} = useQuery('filteredTokens', fetchTokens, refetchInterval)
   if (status === 'loading'){
-    return <div className="grid place-items-center text-4xl">Loading....</div>;
+    return <div className="grid place-items-center mt-80 text-4xl my-auto">Loading....</div>;
   }
 
   if (status === 'error'){
-    return <div className="grid place-items-center text-4xl">Error</div>;
+    return <div className="grid place-items-center mt-80 text-4xl">Error</div>;
   }
 
   // setInterval(() => {
