@@ -12,7 +12,7 @@ const DetailTokenHead = ({ token }: { token: any }) => {
         </p>
       </div>
       <div className="flex space-x-6 items-center">
-        <p className="text-4xl bold">
+        <p className="text-3xl lg:text-4xl bold">
           ${token.market_data.current_price.eur.toLocaleString()}
         </p>
         <div className="flex items-center text-2xl bold">

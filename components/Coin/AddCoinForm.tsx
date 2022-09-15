@@ -20,19 +20,19 @@ const AddCoinForm = (props: any) => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex lg:justify-center">
       <input
         type="text"
         placeholder="Add Coin id"
         value={id}
-        className={"p-2 border-2 rounded my-4 text-gray-600"}
+        className={"border-2 rounded my-4 text-gray-600 lg:py-2"}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
       <button
         type="button"
         onClick={emmitCoinId}
-        className="ml-6 my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        className="ml-3 my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Add Coin
       </button>

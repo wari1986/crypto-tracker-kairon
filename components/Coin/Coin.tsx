@@ -10,13 +10,13 @@ const Coin = ( token: any ) => {
 
   return (
     <>
-      <tr className="border border-solid text-center">
+      <tr className="border-y-2 border-solid text-center">
         <td data-label="Delete icon">
           <button type="button" onClick={emmitCoinId}>
             <FaRegTrashAlt />
           </button>
         </td>
-        <td data-label="Number">#</td>
+        <td data-label="Number">{token.market_cap_rank}</td>
         <Link href="/id" as={`/${token.id}`}>
           <td
             data-label="Coin"
@@ -25,7 +25,7 @@ const Coin = ( token: any ) => {
             <p className="w-12">
               <img className="w-12" src={token.image} alt="" />
             </p>
-            <p className="w-24">{token.name}</p>
+            <p className="w-16 lg:w-24">{token.name}</p>
             <p className="text-gray-400">{token.symbol.toUpperCase()}</p>
           </td>
         </Link>
@@ -41,30 +41,47 @@ const Coin = ( token: any ) => {
         )}
 
         {token.price_change_percentage_24h_in_currency < 0 ? (
-          <td className="text-red-600" data-label="Price variation 24h">
+          <td
+            className="hidden md:table-cell text-red-600"
+            data-label="Price variation 24h"
+          >
             {token.price_change_percentage_24h_in_currency.toFixed(2)}%
           </td>
         ) : (
-          <td className="text-green-600" data-label="Price variation 24h">
+          <td
+            className="hidden md:table-cell text-green-600"
+            data-label="Price variation 24h"
+          >
             {token.price_change_percentage_24h_in_currency.toFixed(2)}%
           </td>
         )}
 
         {token.price_change_percentage_7d_in_currency < 0 ? (
-          <td className="text-red-600" data-label="Price variation 7d">
+          <td
+            className="hidden md:table-cell text-red-600"
+            data-label="Price variation 7d"
+          >
             {token.price_change_percentage_7d_in_currency.toFixed(2)}%
           </td>
         ) : (
-          <td className="text-green-600" data-label="Price variation 7d">
+          <td
+            className="hidden md:table-cell text-green-600"
+            data-label="Price variation 7d"
+          >
             {token.price_change_percentage_7d_in_currency.toFixed(2)}%
           </td>
         )}
 
-        <td data-label="Total Volume">
+        <td className="hidden md:table-cell" data-label="Total Volume">
           ${token.total_volume.toLocaleString()}
         </td>
-        <td data-label="Market cap">${token.market_cap.toLocaleString()}</td>
-        <td data-label="Last 7 days chart"></td>
+        <td className="hidden md:table-cell" data-label="Market cap">
+          ${token.market_cap.toLocaleString()}
+        </td>
+        <td
+          className="hidden md:table-cell"
+         data-label="Last 7 days chart"
+        ></td>
       </tr>
     </>
   );

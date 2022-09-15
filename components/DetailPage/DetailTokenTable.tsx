@@ -2,7 +2,7 @@ import React from 'react'
 
 const DetailTokenTable = ({ token }: { token: any }) => {
   return (
-    <div className="grid grid-cols-2 gap-4 text-xl">
+    <div className="grid lg:grid-cols-2 gap-4 text-lg lg:text-xl">
       <div className="flex justify-between border-b-2">
         <p>Market Cap</p>
         {token.market_data.market_cap.eur ? (

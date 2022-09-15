@@ -43,7 +43,7 @@ const DashboardTable = ({ filteredTokens }: { filteredTokens: Array<Token> }) =>
   return (
     <>
       <AddCoinForm addId={addCoin} />
-      <table className="table-auto w-screen my-8">
+      <table className="table-auto w-full my-8">
         <DashboardTableHeader />
         <tbody>
           {list.map((token) => {
@@ -51,6 +51,7 @@ const DashboardTable = ({ filteredTokens }: { filteredTokens: Array<Token> }) =>
               <Coin
                 deleteCoin={deleteCoin}
                 key={token.id}
+                market_cap_rank={token.market_cap_rank}
                 id={token.id}
                 image={token.image}
                 name={token.name}

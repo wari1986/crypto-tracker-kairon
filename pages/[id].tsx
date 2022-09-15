@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 const DetailPage = ({ token }: { token: any }) => {
   return (
     <Layout>
-      <div className="mx-12 space-y-8">
+      <div className="space-y-4 lg:mx-12 lg:space-y-8 ">
         <DetailTokenHead token={token} />
         <DetailTokenIcons />
         <DetailTokenTable token={token} />

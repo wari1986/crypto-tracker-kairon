@@ -14,7 +14,7 @@ const DashboardRefreshButton = () => {
   return (
     <>
       <button
-        className="w-1/12 grid place-items-center rounded-lg py-2 text-white mx-auto bg-green-500"
+        className="w-1/4 lg:w-1/12 grid place-items-center rounded-lg py-2 text-white mx-auto bg-green-500"
         onClick={handleRefresh}
       >
         Refresh
