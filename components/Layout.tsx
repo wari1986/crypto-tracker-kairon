@@ -4,7 +4,7 @@ import React from "react";
 
 const Layout = ({ children }: { children: React.ReactNode}) => {
   return (
-    <div>
+    <div className="px-4">
       <Head>
         <title>Crypto tracker</title>
         <meta name="description" content="Crypto token tracker" />

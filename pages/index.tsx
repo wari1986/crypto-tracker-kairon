@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import Token from "../types/Token";
 import DashboardTable from "../components/Dashboard/DashboardTable";
-import DashboardRefreshButton from "../components/Dashboard/DashboardRefreshButton";
+// import DashboardRefreshButton from "../components/Dashboard/DashboardRefreshButton";
 import Layout from "../components/Layout";
 
 export default function Home() {
@@ -13,7 +13,9 @@ export default function Home() {
     return res.json()
   }
 
-  const {data, status} = useQuery('filteredTokens', fetchTokens)
+  const refetchInterval = {refetchInterval: 30000};
+
+  const {data, status} = useQuery('filteredTokens', fetchTokens, refetchInterval)
   if (status === 'loading'){
     return <div className="grid place-items-center text-4xl">Loading....</div>;
   }
@@ -21,15 +23,14 @@ export default function Home() {
   if (status === 'error'){
     return <div className="grid place-items-center text-4xl">Error</div>;
   }
-  
-  setInterval(() => {
-    fetchTokens();
-  },30000)
 
+  // setInterval(() => {
+  //   fetchTokens();
+  // },30000)
   return(
     <Layout>
       <DashboardTable filteredTokens={data} />
-      <DashboardRefreshButton />
+      {/* <DashboardRefreshButton /> */}
     </Layout>
   );
 }
